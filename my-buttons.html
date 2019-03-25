@@ -1,0 +1,62 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/elements/dom-if.html">
+
+<dom-module id="my-buttons">
+  
+  <template>
+    <template is="dom-if" if="{{isSecVisible}}">
+      <style>
+        :host {
+          display: block;
+        }
+      </style>
+      <h1>My App final </h1>
+      <span>Ejercicio final de polymer</span>
+      <br>
+      <br>
+      <button on-click="myOnClickMetod1">Show List</button>
+      <button on-click="myOnClickMetod2">Show Table</button>
+    </template>
+  </template>
+
+  <script>
+    /**
+     * `my-buttons`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class MyButtons extends Polymer.Element {
+      static get is() { return 'my-buttons'; }
+      static get properties() {
+        return {
+          isSecVisible: {
+            type: Boolean,
+            value: true
+          }
+        };
+      }
+
+      myOnClickMetod1(e){
+        console.log(e);
+        alert('clickEvent1');
+        this.dispatchEvent( new CustomEvent('show-detail',{
+          detail: 'ShowList', bubbles:true, composed: true
+        })); 
+      }
+
+      myOnClickMetod2(e){
+        console.log(e);
+        alert('clickEven2');
+        this.dispatchEvent( new CustomEvent('show-detail',{
+          detail: 'ShowTable', bubbles:true, composed: true
+        }));
+      }
+
+    }
+
+    window.customElements.define(MyButtons.is, MyButtons);
+  </script>
+</dom-module>
