@@ -41,7 +41,6 @@
 
       myOnClickMetod1(e){
         console.log(e);
-        alert('clickEvent1');
         this.dispatchEvent( new CustomEvent('show-detail',{
           detail: 'ShowList', bubbles:true, composed: true
         })); 
@@ -49,7 +48,6 @@
 
       myOnClickMetod2(e){
         console.log(e);
-        alert('clickEven2');
         this.dispatchEvent( new CustomEvent('show-detail',{
           detail: 'ShowTable', bubbles:true, composed: true
         }));
